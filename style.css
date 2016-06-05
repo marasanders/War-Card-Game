@@ -1,0 +1,61 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+}
+
+/*.controls {
+  margin: 50px;
+  text-align: center;
+}*/
+
+
+/*button {
+  background: #4479BA;
+  color: #FFF;
+  font-family: Josefin Slab;
+  font-size: 50px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+}
+
+button:hover{
+    background: #356094;
+}*/
+
+
+
+#card {
+  font-family: Josefin Slab;
+  font-size: 50px;
+  color: white;
+  font-weight:bolder;
+  text-align: center;
+  margin: 20px;
+  border: 1px solid black;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+  height: 180px;
+  width: 106px;
+  display: inline-block;
+  margin-left:200px;
+  flex-direction: column;
+  background-image: url("apples.jpg");
+  border-radius: 20%;
+  background-size: contain;
+}
+
+img{
+  border-radius:20px;/*<!--20px will round corners-->*/
+}
