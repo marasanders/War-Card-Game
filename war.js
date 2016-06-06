@@ -6,20 +6,20 @@ var deck = [];
 
 
 
-   function createDeck() {
-   for (var i=1; i<14; i++) {
-     deck[i] = {value:i,suit:"c"};
-//create cards 1-13 suit clubs
-     deck[i+13] = {value:i,suit:"h"};
-//create cards 1-13 suit hearts
-     deck[i+26] = {value:i,suit:"s"}
-//create cards 1-13 suit spades
-     deck[i+39] = {value:i,suit:"d"}
-//create cards 1-13 suit diamonds
-     console.log (i);
-     }
-     console.log(deck);
+function createDeck() {
+  for (var i=1; i<14; i++) {
+    deck[i] = {value:i,suit:"c"};
+    //create cards 1-13 suit clubs
+    deck[i+13] = {value:i,suit:"h"};
+    //create cards 1-13 suit hearts
+    deck[i+26] = {value:i,suit:"s"}
+    //create cards 1-13 suit spades
+    deck[i+39] = {value:i,suit:"d"}
+    //create cards 1-13 suit diamonds
+    console.log (i);
   }
+  console.log(deck);
+}
 
 function shuffle(deck) {
   var cardToShuffle = deck.length, tempHold, remainingCard;
@@ -36,5 +36,7 @@ function shuffle(deck) {
   return deck;
 }
 
-createDeck();
-shuffle(deck);
+$start.on("click", function(){
+    createDeck();
+    shuffle(deck);
+});
