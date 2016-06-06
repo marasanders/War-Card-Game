@@ -20,7 +20,7 @@ function createDeck() {
     deck[i+38] = {value:i,suit:"d"}
     // console.log (i);
 console.log (deck[i-1]);
-//console.log (deck.value[i]);
+console.log (deck.value[i]);
     // console.log (deck[i+12]);
     // console.log (deck[i+25]);
     // console.log (deck[i+38]);
@@ -56,6 +56,7 @@ function splitTheDeck(deck,player1Hand,player2Hand){
     //  console.log(player1Hand);
      return (deck,player1Hand,player2Hand)
 };
+
 
 $start.on("click", function(){
     createDeck();
