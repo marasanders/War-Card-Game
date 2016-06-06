@@ -15,15 +15,26 @@
   text-align: center;
 }*/
 
+h1 {
+  font-family: Josefin Slab;
+  font-size: 72px;
+  text-align: center;
+}
 
-/*button {
+.play {
+  width: 100%;
+  display:block;
+  list-style-type:none;
+  flex-grow:1;
+}
+button {
   background: #4479BA;
   color: #FFF;
   font-family: Josefin Slab;
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   border: 1px solid black;
-  margin: 20px;
+  /*margin: 2px;*/
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 2px 2px black;
@@ -31,17 +42,17 @@
 
 button:hover{
     background: #356094;
-}*/
+}
 
 
 
-#card {
+.card {
   font-family: Josefin Slab;
   font-size: 50px;
   color: white;
   font-weight:bolder;
   text-align: center;
-  margin: 20px;
+  margin: 20px 100px;
   border: 1px solid black;
   padding: 15px 25px;
   border-radius: 10px;
@@ -56,6 +67,17 @@ button:hover{
   background-size: contain;
 }
 
-img{
-  border-radius:20px;/*<!--20px will round corners-->*/
+#player1 .card{
+  background-color: blue;
 }
+
+section{
+  boarder: 2px dashed black:
+  padding 50px 0;
+  max-width: 800px
+  margin:0 auto
+}
+
+/*img{
+  border-radius:20px;/*<!--20px will round corners-->
+}*/

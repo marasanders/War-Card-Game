@@ -1,3 +1,24 @@
+var $balance= $(".balance")
+var $input = $(".input")
+var $deposit = $("#.deposit")
+var $button = $("input[type+'button']")
+
+var $account = $(this).parent();
+$deposit.on("click", function(){
+   var $account = $(this).parent();
+   var inputValue + parseInt($account.find($input).val());
+   var originalBalance + parseInt($account.find($balance).html().replace('$',''))
+   var newBalance = inputValue + originalBalance;
+   $account.find($balance).html("$"+newBalance)
+}
+
+val $buttonIClickedOn = $(this)
+if ($buttonIClickedOn.val(  == "Withdraw"){
+  inputValue = inputValue * -1
+}
+
+
+
 But here’s an interesting, if obvious, insight: the number of shuffled elements (n - m) plus the number of remaining elements (m) is always equal to n. This means we can do the entire shuffle in-place, without any extra space! We use the back of the array to store the shuffled elements, and the front of the array to store the remaining elements. We don’t care about the order of the remaining elements as long as we sample uniformly when picking!
 
 To implement the in-place O(n) shuffle, then, pick a random remaining element (from the front) and place in its new location (in the back). The unshuffled element in the back is swapped to the front, where it waits for subsequent shuffling:
@@ -23,4 +44,89 @@ For more about the Fisher–Yates shuffle, see the Wikipedia article and Jeff At
 
 Comments? Discuss on HN!
 
-January 14, 2012Mike Bostock
+
+
+var player1Score = parseInt(0)
+var player2Score = parseInt(0)
+var dealt = false;
+var deck = new Array(53);
+var i = 1;
+
+// create a file for each card
+//function nameCard() {
+//   return this.num + this.suit + ".gif";
+}
+
+// Put together a card
+function Card(num,suit) {
+   this.num = num;
+   this.suit = suit;
+   this.nameCard = name;
+   console.log(this.nameCard)
+}
+
+   function Deal() {
+   for (i=1; i<14; i++) {
+     deck[i] = new Card(i,"c");
+     deck[i+13] = new Card(i,"h");
+     deck[i+26] = new Card(i,"s");
+     deck[i+39] = new Card(i,"d");
+     console.log (i);
+     console.log(dec[i]);
+     }
+  }
+
+  //  for (var i=0; i<10; i++) {
+  //    console.log (deck[i]);
+  //  }
+
+// shuffle the deck
+//     var n = Math.floor(400 * Math.random() + 500);
+//     for (i=1; i<n; i++) {
+//        card1 = Math.floor(52*Math.random() + 1);
+//        card2 = Math.floor(52*Math.random() + 1);
+//        temp = deck[card2];
+//        deck[card2] = deck[card1];
+//        deck[card1] = temp;
+//     }
+
+//     / Deal and Display cards
+//    for (i=1; i<6; i++) {
+//       hand[i] = deck[i];
+//       document.images[i].src = hand[i].fname();
+//       document.images[i+5].src = "hold.gif";
+//       held[i] = false;
+//      }
+//    dealt = true;
+//    score = score - 1; //deduct one for bet amount
+//    document.form1.total.value = score;
+//    document.images[11].src="draw.gif";
+//    Addscore();
+// }
+
+
+
+
+// shuffle the deck
+//     var n = Math.floor(400 * Math.random() + 500);
+//     for (i=1; i<n; i++) {
+//        card1 = Math.floor(52*Math.random() + 1);
+//        card2 = Math.floor(52*Math.random() + 1);
+//        temp = deck[card2];
+//        deck[card2] = deck[card1];
+//        deck[card1] = temp;
+//     }
+
+//     / Deal and Display cards
+//    for (i=1; i<6; i++) {
+//       hand[i] = deck[i];
+//       document.images[i].src = hand[i].fname();
+//       document.images[i+5].src = "hold.gif";
+//       held[i] = false;
+//      }
+//    dealt = true;
+//    score = score - 1; //deduct one for bet amount
+//    document.form1.total.value = score;
+//    document.images[11].src="draw.gif";
+//    Addscore();
+// }
