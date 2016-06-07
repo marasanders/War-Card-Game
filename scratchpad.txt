@@ -1,22 +1,266 @@
-var $balance= $(".balance")
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  text-decoration: inherit;
+  line-height: inherit;
+}
+
+/*.controls {
+  margin: 50px;
+  text-align: center;
+}*/
+
+body {
+  font-family: "Josefin Slab";
+}
+h1 {
+  font-size: 72px;
+  text-align: center;
+}
+
+
+.play {
+  text-align: center;
+}
+
+button {
+  background: #4479BA;
+  color: #FFF;
+  font-size: 30px;
+  text-align: center;
+  border: 1px solid black;
+  margin: 10px;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+}
+
+button:hover{
+    background: #356094;
+}
+
+.board {
+  text-align: center;
+}
+
+.card {
+  font-size: 40px;
+  color: white;
+  font-weight:bolder;
+  text-align: center;
+  /*margin: 20px*/
+  border: 1px solid black;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+  height: 180px;
+  width: 106px;
+  display: inline-block;
+  margin:10px;
+  background-image: url("apples.jpg");
+  border-radius: 20%;
+  background-size: contain;
+}
+
+#player1 .card{
+  background-color: blue;
+}
+
+section{
+  boarder: 2px dashed black:
+  padding 50px 0;
+  max-width: 800px
+  margin:0 auto
+}
+
+/*img{
+  border-radius:20px;/*<!--20px will round corners-->
+}*/
+
+
+
+I tried _____. I expected _____ to happen._____ happened instead.
+My repo link is ___ and my question is about lines ___.
+
+var player1score = parsInt(0)
+var player2score = parsInt(0)
+var score = 100;
+var dealt = false;
+var player1Hand = new Array(26);
+var player2Hand = new Array(26);
+var deck = new Array(52);
+
+function Deal() {
+// fill the deck (in order, for now)
+   var i = 1
+   for (i=1; i<14; i++) {
+     deck[i] = new Card(i,"c");
+     deck[i+13] = new Card(i,"h");
+     deck[i+26] = new Card(i,"s");
+     deck[i+39] = new Card(i,"d");
+   }
+// shuffle the deck
+    var n = Math.floor(400 * Math.random() + 500);
+    for (i=1; i<n; i++) {
+       card1 = Math.floor(52*Math.random() + 1);
+       card2 = Math.floor(52*Math.random() + 1);
+       temp = deck[card2];
+       deck[card2] = deck[card1];
+       deck[card1] = temp;
+    }
+INDEX
+
+<!doctype html>
+<html>
+  <head>
+    <title>ATM</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="atm.css">
+  </head>
+  <body>
+    <div class="header">
+      <div><img src="ga.png" /></div>
+      <div class="title">Bank of GA</div>
+    </div>
+
+    <div id="checking" class="account">
+      <h2>Checking</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+    <div id="savings" class="account">
+      <h2>Savings</h2>
+      <div class="balance">$0</div>
+      <input class="input" type="text" placeholder="enter an amount" />
+      <input class="deposit" type="button" value="Deposit" />
+      <input class="withdraw" type="button" value="Withdraw" />
+    </div>
+
+    <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="atm.js"></script>
+  </body>
+</html>
+
+
+CSSCSSCSS
+
+var $balance = $(".balance")
 var $input = $(".input")
-var $deposit = $("#.deposit")
-var $button = $("input[type+'button']")
+var $button = $("input[type='button']")
 
-var $account = $(this).parent();
-$deposit.on("click", function(){
-   var $account = $(this).parent();
-   var inputValue + parseInt($account.find($input).val());
-   var originalBalance + parseInt($account.find($balance).html().replace('$',''))
-   var newBalance = inputValue + originalBalance;
-   $account.find($balance).html("$"+newBalance)
+// when i click on deposit
+$button.on("click", function(){
+  // get the value of the input
+  var $buttonIClickedOn = $(this)
+  var $account = $(this).parent();
+  var inputValue = parseInt($account.find($input).val());
+  if($buttonIClickedOn.val() == "Withdraw"){
+    inputValue = inputValue * -1
+  }
+  // get the original balance
+  var originalBalance = parseInt($account.find($balance).html().replace('$',''));
+  // add the input to original balance
+  var newBalance = inputValue + originalBalance;
+  // it should appear under checking
+  $account.find($balance).html("$"+newBalance)
+})
+cssCSScssCSS
+@import url(http://fonts.googleapis.com/css?family=Oleo+Script);
+@import url(http://fonts.googleapis.com/css?family=Ruluko);
+
+body {
+  font-family: 'Ruluko', sans-serif;
+  margin: 0px auto;
+  text-align: center;
+  width: 700px;
 }
 
-val $buttonIClickedOn = $(this)
-if ($buttonIClickedOn.val(  == "Withdraw"){
-  inputValue = inputValue * -1
+.header {
+  margin: 50px 0px;
 }
 
+.title {
+  color: #F52F4F;
+  font-family: 'Oleo Script', cursive;
+  font-size: 50px;
+}
+
+.account {
+  background-color: #6C9A74;
+  border: 1px solid #295A33;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.balance {
+  background-color: #E3E3E3;
+  border: 1px solid #676767;
+  border-radius: 15px;
+  font-family: 'Ruluko', sans-serif;
+  font-size: 50px;
+  margin: 5px;
+  padding: 25px 0px;
+}
+
+.zero {
+  background-color: #F52F4F;
+  color: #FFFFFF;
+}
+Status API Training Shop Blog About
 
 
 But here’s an interesting, if obvious, insight: the number of shuffled elements (n - m) plus the number of remaining elements (m) is always equal to n. This means we can do the entire shuffle in-place, without any extra space! We use the back of the array to store the shuffled elements, and the front of the array to store the remaining elements. We don’t care about the order of the remaining elements as long as we sample uniformly when picking!
@@ -44,89 +288,25 @@ For more about the Fisher–Yates shuffle, see the Wikipedia article and Jeff At
 
 Comments? Discuss on HN!
 
-
-
-var player1Score = parseInt(0)
-var player2Score = parseInt(0)
-var dealt = false;
-var deck = new Array(53);
-var i = 1;
-
-// create a file for each card
-//function nameCard() {
-//   return this.num + this.suit + ".gif";
-}
-
-// Put together a card
-function Card(num,suit) {
-   this.num = num;
-   this.suit = suit;
-   this.nameCard = name;
-   console.log(this.nameCard)
-}
-
-   function Deal() {
-   for (i=1; i<14; i++) {
-     deck[i] = new Card(i,"c");
-     deck[i+13] = new Card(i,"h");
-     deck[i+26] = new Card(i,"s");
-     deck[i+39] = new Card(i,"d");
-     console.log (i);
-     console.log(dec[i]);
-     }
-  }
-
-  //  for (var i=0; i<10; i++) {
-  //    console.log (deck[i]);
-  //  }
-
-// shuffle the deck
-//     var n = Math.floor(400 * Math.random() + 500);
-//     for (i=1; i<n; i++) {
-//        card1 = Math.floor(52*Math.random() + 1);
-//        card2 = Math.floor(52*Math.random() + 1);
-//        temp = deck[card2];
-//        deck[card2] = deck[card1];
-//        deck[card1] = temp;
-//     }
-
-//     / Deal and Display cards
-//    for (i=1; i<6; i++) {
-//       hand[i] = deck[i];
-//       document.images[i].src = hand[i].fname();
-//       document.images[i+5].src = "hold.gif";
-//       held[i] = false;
-//      }
-//    dealt = true;
-//    score = score - 1; //deduct one for bet amount
-//    document.form1.total.value = score;
-//    document.images[11].src="draw.gif";
-//    Addscore();
-// }
-
-
-
-
-// shuffle the deck
-//     var n = Math.floor(400 * Math.random() + 500);
-//     for (i=1; i<n; i++) {
-//        card1 = Math.floor(52*Math.random() + 1);
-//        card2 = Math.floor(52*Math.random() + 1);
-//        temp = deck[card2];
-//        deck[card2] = deck[card1];
-//        deck[card1] = temp;
-//     }
-
-//     / Deal and Display cards
-//    for (i=1; i<6; i++) {
-//       hand[i] = deck[i];
-//       document.images[i].src = hand[i].fname();
-//       document.images[i+5].src = "hold.gif";
-//       held[i] = false;
-//      }
-//    dealt = true;
-//    score = score - 1; //deduct one for bet amount
-//    document.form1.total.value = score;
-//    document.images[11].src="draw.gif";
-//    Addscore();
-// }
+January 14, 2012Mike Bostock
+.hero img{
+  width: 100%;
+  height: 100%;   width: 100%;
+  height: 100%; /*<!--.smile{*/
+  width: 283px;
+  height: 298px;
+  border-radius: 50%;
+  overflow: hidden; by default will make anything that overflows beyond border should be invisible so both border and picture will be round
+  margin-left: auto;so the white square goes away and picture will be round
+  margin-right: auto; websit should automatically figure out what margins should be default center
+        outline:1px solid red;-
+  transition: transform 1s, box-shadow 1s (glow fades) looks for property put in hover it will transition rotation will apply a little at a time
+  background-image:url("new_image.jpg") this will put a pickture under the other
+   background-size:contain; will contain the backround image into the container than it is inside not overflow
+       then would add a new
+.smile img {
+  transition 1s; saying the opacity should transition over 1second
+end squiggle
+.smile:hover img{ any image inside smile
+    opacity:0; fade image in gradually
+-->*/

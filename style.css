@@ -15,26 +15,26 @@
   text-align: center;
 }*/
 
+body {
+  font-family: "Josefin Slab";
+}
 h1 {
-  font-family: Josefin Slab;
   font-size: 72px;
   text-align: center;
 }
 
+
 .play {
-  width: 100%;
-  display:block;
-  list-style-type:none;
-  flex-grow:1;
+  text-align: center;
 }
+
 button {
   background: #4479BA;
   color: #FFF;
-  font-family: Josefin Slab;
   font-size: 30px;
   text-align: center;
   border: 1px solid black;
-  /*margin: 2px;*/
+  margin: 10px;
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 2px 2px black;
@@ -44,15 +44,15 @@ button:hover{
     background: #356094;
 }
 
-
+.board {
+  text-align: center;
+}
 
 .card {
-  font-family: Josefin Slab;
-  font-size: 50px;
+  font-size: 40px;
   color: white;
   font-weight:bolder;
   text-align: center;
-  margin: 20px 100px;
   border: 1px solid black;
   padding: 15px 25px;
   border-radius: 10px;
@@ -60,8 +60,7 @@ button:hover{
   height: 180px;
   width: 106px;
   display: inline-block;
-  margin-left:200px;
-  flex-direction: column;
+  margin:10px;
   background-image: url("apples.jpg");
   border-radius: 20%;
   background-size: contain;
