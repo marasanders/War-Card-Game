@@ -81,7 +81,7 @@ section{
 /*img{
   border-radius:20px;/*<!--20px will round corners-->
 }*/
-
+💖
 
 
 I tried _____. I expected _____ to happen._____ happened instead.
@@ -259,6 +259,19 @@ body {
 .zero {
   background-color: #F52F4F;
   color: #FFFFFF;
+
+  function changeSClass(savingsBal){
+   $("#savings .balance").removeClass("zero");
+   if (savingsBal === 0) {
+    $("#savings .balance").addClass("zero");
+   }
+};
+function changeClass(acctBal,balLoc){
+   $(balLoc).removeClass("zero");
+   if (acctBal === 0) {
+    $(balLoc).addClass("zero");
+   }
+};
 }
 Status API Training Shop Blog About
 
