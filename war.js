@@ -1,32 +1,16 @@
-var player1Hand = [];
-var player2Hand = [];
 var deck = [];
 var cards = [];
+var player1Hand = [];
+var player2Hand = [];
 var player1Card;
 var player2Card;
+var multiWar1Hold = [];
+var multiWar2Hold = [];
+var tieSwitch = 0
 var $start= $("#start")
-var dealt = false;
-var winner = ""
 var playsCounter = parseInt(0)
+var winner = ""
 
-// Game was too long and boring with 52 cards
-//
-// function createDeck() {
-//   for (var i=1; i<7; i++) {
-// //create cards 1-6 suit red
-//     deck[i-1] = {value:i,suit:"red"};
-// //create cards 1-6 suit blue
-//     deck[i+5] = {value:i,suit:"blue"};
-// //create cards 1-6 suit green
-//     deck[i+11] = {value:i,suit:"green"}
-// //create cards 1-6 suit orange
-//     deck[i+17] = {value:i,suit:"orange"}
-//     // console.log (i);
-//     console.log (deck[i-1]);
-//     console.log (deck[i-1].value);
-//     console.log (deck[i-1].suit);
-//   }
-// }
 function createDeck() {
   for (var i=1; i<14; i++) {
 //create cards 1-13 suit clubs
@@ -71,19 +55,59 @@ function playOneHand(){
   player1Card = player1Hand.shift();
   player2Card = player2Hand.shift();
   if ((player1Card.value) > (player2Card.value))  {
+// Did the last play result in a war?
+    if ((multiWar1Hold.length != 0)||(multiWar2Hold.length != 0)) {
+// Check the length of the War Hold the Cards Array it can be smaller than 4 if the player had
+// less than 4 cards in their hand - It can be larger than 4 if there were 2 ties in a row
+// Append all War Hold Arrays to the end of the winners Hand
+      var l = multiWar1Hold.length
+      for (var i = 0; i < l; i++) {
+        player1Hand.push(multiWar1Hold[i]);
+       }
+       l = multiWar2Hold.length
+       for (var i = 0; i < l; i++) {
+         player1Hand.push(multiWar2Hold[i]);
+       }
+    }
+// Give the winner back his card and give him the losers card too
     player1Hand.push(player2Card);
     player1Hand.push(player1Card);
+// Reset War Hold Arrays for new play
+    multiWar1Hold = [];
+    multiWar2Hold = [];
     $(".Winner").css("color",player1Card.suit)
                 .html("Player One Wins!")
   } else if ((player2Card.value) > (player1Card.value))  {
-    player2Hand.push(player1Card);
-    player2Hand.push(player2Card);
-    $(".Winner").css("color",player2Card.suit)
-                .html("Player Two Wins!")
-  } else {
-    $(".Winner").html("It's a Tie!")
-      player1Hand.push(player1Card);
+// Did the last play result in a war?
+      if ((multiWar1Hold.length != 0)||(multiWar2Hold.length != 0)) {
+// Check the length of the War Hold the Cards Array it can be smaller than 4 if the player had
+// less than 4 cards in their hand - It can be larger than 4 if there were 2 ties in a row
+// Append all War Hold Arrays to the end of the winners Hand
+         var l = multiWar1Hold.length
+         for (var i = 0; i < l; i++) {
+           player2Hand.push(multiWar1Hold[i]);
+          }
+          l = multiWar2Hold.length
+          for (var i = 0; i < l; i++) {
+            player2Hand.push(multiWar2Hold[i]);
+          }
+      }
+// Give the winner back his card and give him the losers card too
+      player2Hand.push(player1Card);
       player2Hand.push(player2Card);
+// Reset War Hold Arrays for new play
+      multiWar1Hold = [];
+      multiWar2Hold = [];
+      $(".Winner").css("color",player2Card.suit)
+                  .html("Player Two Wins!")
+  } else {
+// It's a TIE
+    $(".Winner").html("It's WAR!! Click to Start")
+                .css("color","purple");
+// Return the players cards to their hands so winner can take all and correct # of cards is displayed
+      player1Hand.unshift(player1Card);
+      player2Hand.unshift(player2Card);
+      tieSwitch = 1
   }
   $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
   $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
@@ -111,6 +135,19 @@ function findWinner () {
   return (winner);
 };
 
+function war() {
+    var war1Hold = player1Hand.splice(0,4);
+    var war2Hold = player2Hand.splice(0,4);
+    for (var i = 0; i < 4; i++) {
+      multiWar1Hold.push(war1Hold[i]);
+      multiWar2Hold.push(war2Hold[i]);
+  }
+    tieSwitch = 0
+};
+
+
+// START THE GAME
+
 $(document).ready(function() {
   // Display Blank Card for Players
   $(".Card.Player1").addClass("currentCard");
@@ -135,11 +172,18 @@ $(".Card").on("click", function(){
     shuffle(player2Hand);
     playsCounter = parseInt(0);
   };
+
+
   playOneHand();
   flipCards();
+  if (tieSwitch){
+    war()
+}
+
+
   if (findWinner()){
     $(".Winner").html(winner)
-                .css("color",purple);
+                .css("color","purple");
     $(".Card.Player1")
       .addClass("currentCard")
       .html("");
