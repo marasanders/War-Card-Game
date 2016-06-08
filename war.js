@@ -77,6 +77,9 @@ function playOneHand(){
     multiWar2Hold = [];
     $(".Winner").css("color",player1Card.suit)
                 .html("Player One Wins!")
+//need to display score in if because if 2 wars in a row numbers will be off
+    $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
+    $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
   } else if ((player2Card.value) > (player1Card.value))  {
 // Did the last play result in a war?
       if ((multiWar1Hold.length != 0)||(multiWar2Hold.length != 0)) {
@@ -100,6 +103,9 @@ function playOneHand(){
       multiWar2Hold = [];
       $(".Winner").css("color",player2Card.suit)
                   .html("Player Two Wins!")
+//need to display score in if because if 2 wars in a row numbers will be off
+      $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
+      $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
   } else {
 // It's a TIE
     $(".Winner").html("It's WAR!! Click to Start")
@@ -109,8 +115,6 @@ function playOneHand(){
       player2Hand.unshift(player2Card);
       tieSwitch = 1
   }
-  $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
-  $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
 };
 
 
@@ -138,10 +142,17 @@ function findWinner () {
 function war() {
     var war1Hold = player1Hand.splice(0,4);
     var war2Hold = player2Hand.splice(0,4);
-    for (var i = 0; i < 4; i++) {
-      multiWar1Hold.push(war1Hold[i]);
+// Check the length of the War Hold the Cards Array it can be smaller than 4 if the player had
+// less than 4 cards in their hand - It can be larger than 4 if there were 2 ties in a row
+// Append all War Hold Arrays to the end of the winners Hand
+   var l = war1Hold.length
+   for (var i = 0; i < l; i++) {
+     multiWar1Hold.push(war1Hold[i]);
+    }
+    l = war2Hold.length
+    for (var i = 0; i < l; i++) {
       multiWar2Hold.push(war2Hold[i]);
-  }
+    }
     tieSwitch = 0
 };
 
