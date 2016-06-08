@@ -38,9 +38,6 @@ function createDeck() {
 //create cards 1-13 suit diamonds
     deck[i+38] = {value:i,suit:"orange"}
     // console.log (i);
-    console.log (deck[i-1]);
-    console.log (deck[i-1].value);
-    console.log (deck[i-1].suit);
   }
 }
 
@@ -67,7 +64,6 @@ function splitTheDeck(){
       player2Hand[i] = deck[j+1];
       j = j + 2
      }
-     console.log(deck.length)
 };
 
 
