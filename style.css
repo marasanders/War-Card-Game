@@ -35,7 +35,8 @@ h1:hover{
 }
 
 .card {
-  font-size: 40px;
+  font-size: 50px;
+  text-shadow: 2px 2px 4px #000000;
   color: white;
   font-weight:bolder;
   text-align: center;
