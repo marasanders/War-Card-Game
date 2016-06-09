@@ -165,8 +165,8 @@ function war() {
 
 $(document).ready(function() {
   // Display Blank Card for Players
-  $(".card.player1").addClass("currentCard");
-  $(".card.player2").addClass("currentCard");
+  $(".js-play.player1").addClass("currentCard");
+  $(".js-play.player2").addClass("currentCard");
 })
 
 $start.on("click", function(){
