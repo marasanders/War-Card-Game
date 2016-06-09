@@ -2,12 +2,11 @@
 
 Build an application to play the card game war.
 
-Explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
-At least 5 user stories.
-
 Technologies used: HTML, JavaScript, JQuery, CSS
 
 Approach Taken:
+
+Load Initial Page
 
 I.    A Visual appears Center Displays a Pile of "Cards" with message click here to begin play 2 Player Slots on either side are Empty.
 II.   Create a Deck of 52 Cards - Each card with its own unique number and color combination.
@@ -35,3 +34,23 @@ As a User if I win a round it should be acknowledged.
 As a User if my card ties it should let me know a war is about to happen.
 As a User if I win the game it should be acknowledged.
 As a User I would expect the game to reset when the game is over.   
+
+PLANNING:
+
+Card Game of War
+
+Build an application to play the card game war.
+
+Specifications:
+
+Initial Page will be Loaded:
+Score counter will be set at 26 for each player.
+Two Cards will appear "face down" on the screen one marked Computer the other Opponent
+Begin Game:
+Opponent will click on their own deck and a card will be revealed for opponent and computer.
+If one card is greater in value than the other:
+Display "Computer/Opponent wins card"
+The winners counter will go up by one the losers will go down by one.
+If the cards have the same value;
+  Play continues.
+When one players counter reaches zero or less the other player is declared winner.
