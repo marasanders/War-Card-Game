@@ -105,3 +105,15 @@ h1:hover{
   width: 170px;
   line-height:280px;
 }
+
+.greeen {
+    background-image: none;
+    background-color: white;
+    font-size: 200px;
+    font-weight:bolder;
+    text-align: center;
+    height: 250px;
+    width: 170px;
+    line-height:280px;
+    background-image: url("apples.jpg");
+}

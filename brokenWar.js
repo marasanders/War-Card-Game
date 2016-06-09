@@ -10,35 +10,34 @@ var tieSwitch = 0
 var $start= $("#start")
 var playsCounter = parseInt(0)
 var winner = ""
-
+var gameInProgress = "true"
 
 function createDeck() {
   for (var i=1; i<14; i++) {
-//create cards 1-13 suit RED
+//create cards 1-13 suit clubs
     deck[i-1] = {value:i,suit:"red"};
-//create cards 1-13 suit BLUE
-   deck[i+12] = {value:i,suit:"blue"};
-//create cards 1-13 suit GREEN
-    deck[i+25] = {value:i,suit:"green"}
-//create cards 1-13 suit ORANGE
-    deck[i+38] = {value:i,suit:"orange"}
+//create cards 1-13 suit hearts
+//    deck[i+12] = {value:i,suit:"blue"};
+//create cards 1-13 suit spades
+//    deck[i+25] = {value:i,suit:"green"}
+//create cards 1-13 suit diamonds
+//    deck[i+38] = {value:i,suit:"orange"}
+    // console.log (i);
   }
 }
 
-function shuffle(deck){
-  var cardToShuffle = deck.length
-  var tempHold = []
-  var randomCard = []
+function shuffle(cards){
+  var cardToShuffle = cards.length, tempHold, randomCard;
 // While there remain cards to shuffle…
   while (cardToShuffle) {
 // Pick a card any card.
     randomCard = Math.floor(Math.random() * cardToShuffle--);
 // And swap it with the current card.
-    tempHold = deck[cardToShuffle];
-    deck[cardToShuffle] = deck[randomCard];
-    deck[randomCard] = tempHold;
+    tempHold = cards[cardToShuffle];
+    cards[cardToShuffle] = cards[randomCard];
+    cards[randomCard] = tempHold;
   }
-  return deck;
+  return cards;
 }
 
 function splitTheDeck(){
@@ -56,7 +55,8 @@ function splitTheDeck(){
 function playOneHand(){
   player1Card = player1Hand.shift();
   player2Card = player2Hand.shift();
-//  if(!(player1Card&&player2Card)) debugger
+  if(!player2Card){debugger;}
+  if (!(player1Hand.length&&player2Hand.length)) return;
   if ((player1Card.value) > (player2Card.value))  {
 // Did the last play result in a war?
     if ((multiWar1Hold.length != 0)||(multiWar2Hold.length != 0)) {
@@ -122,11 +122,11 @@ function playOneHand(){
 
 
 function flipCards(){
-  $(".JS-Play.Player1")
+  $(".Card.Player1")
     .addClass("currentCard")
     .css("color",player1Card.suit)
     .html(player1Card.value);
-  $(".JS-Play.Player2")
+  $(".Card.Player2")
     .addClass("currentCard")
     .css("color",player2Card.suit)
     .html(player2Card.value);
@@ -134,10 +134,10 @@ function flipCards(){
 
 function findWinner () {
     if (player1Hand.length === 0) {
-    winner = ("Player 2 Wins The Game");
+    winner = ("Player 2 Wins The Game!!");
   } else {
     if (player2Hand.length === 0)
-    winner = ("Player 1 Wins The Game");
+    winner = ("Player 1 Wins The Game!!!");
   }
   return (winner);
 };
@@ -167,60 +167,50 @@ $(document).ready(function() {
   $(".Card.Player1").addClass("currentCard");
   $(".Card.Player2").addClass("currentCard");
 })
-
 $start.on("click", function(){
-// Reset all Variables
-  deck = [];
-  cards = [];
-  player1Hand = [];
-  player2Hand = [];
-  player1Card;
-  player2Card;
-  multiWar1Hold = [];
-  multiWar2Hold = [];
-  tieSwitch = 0
-  playsCounter = parseInt(0)
-  winner = ""
   createDeck();
   shuffle(deck);
   splitTheDeck();
   // Show the Back of the card  for Players to look like the deck was split
-  // Reset all Playing fields for a new game
-  $(".JS-Play.Player1").removeClass("currentCard");
-  $(".JS-Play.Player2").removeClass("currentCard");
+  $(".Card.Player1").removeClass("currentCard");
+  $(".Card.Player2").removeClass("currentCard");
   // Show blank space where deck
-  $(".Card.Deck").addClass("currentCard")
-                 .html(" ");
-  $(".Score.Player1").html("Remaining Cards for Player One:       ");
-  $(".Score.Player2").html("Remaining Cards for Player Two:       ");
-  $(".Winner").html(" ")
+  $(".Card.Deck").addClass("currentCard");
 });
 
-$(".JS-Play").on("click", function(){
+gameInProgress = "true"
 
 
-  playOneHand();
-  flipCards();
-  if (tieSwitch){
-    war()
-}
+$(".Card").on("click", function(){
+//  if (gameInProgress){
+  //random shuffle prevents game from getting stuck
+    playsCounter = playsCounter + 1
+    if (playsCounter > 15){
+      shuffle(player1Hand);
+      shuffle(player2Hand);
+      playsCounter = parseInt(0);
+    };
 
-  if (findWinner()){
-    $(".Winner").html(winner)
-                .css("color","purple");
-    $(".JS-Play.Player1")
-      .addClass("currentCard")
-      .html("");
-    $(".Card.Player2")
-      .addClass("currentCard")
-      .html("");
-    $(".Card.Deck").removeClass("currentCard")
-                   .html("Click to Start");
+
+    playOneHand();
+    flipCards();
+    if (tieSwitch){
+      war()
   }
-})
 
-// $("#start").click()
-//
-//     setInterval(function(){
-//       $(".JS-Play.Player1").click()
-//     },100)
+
+    if (findWinner()){
+      $(".Winner").html(winner)
+                  .css("color","purple");
+      $(".Card.Player1")
+        .addClass("currentCard")
+        .html("");
+      $(".Card.Player2")
+        .addClass("currentCard")
+        .html("");
+      $(".Card.Deck").removeClass("currentCard")
+                     .html("Click to Start");
+      gameInProgress = "false"
+    }
+//  }
+});
