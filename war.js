@@ -1,3 +1,4 @@
+"use strict";
 var deck = [];
 var cards = [];
 var player1Hand = [];
@@ -188,11 +189,11 @@ $start.on("click", function(){
   // Reset all Playing fields for a new game
   $(".js-play.player1").removeClass("currentCard")
                         .html("Click Either Pile to Begin")
-                        .css("color: white");
+                        .css("color","white");
 
   $(".js-play.player2").removeClass("currentCard")
-                         .html("Continue Clicking to Deal")
-                         .css("color","white");
+                        .html("Continue Clicking to Deal")
+                        .css("color","white");
   // Show blank space where deck
   $(".card.deck").addClass("currentCard")
                  .html(" ");
