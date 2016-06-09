@@ -78,11 +78,11 @@ function playOneHand(){
 // Reset War Hold Arrays for new play
     multiWar1Hold = [];
     multiWar2Hold = [];
-    $(".Winner").css("color",player1Card.suit)
+    $(".winner").css("color",player1Card.suit)
                 .html("Player One Wins!")
 //need to display score in if because if 2 wars in a row numbers will be off
-    $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
-    $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
+    $(".score.player1").html("Remaining Cards for Player One: "+player1Hand.length);
+    $(".score.player2").html("Remaining Cards for Player Two: "+player2Hand.length);
   } else if ((player2Card.value) > (player1Card.value))  {
 // Did the last play result in a war?
       if ((multiWar1Hold.length != 0)||(multiWar2Hold.length != 0)) {
@@ -104,14 +104,14 @@ function playOneHand(){
 // Reset War Hold Arrays for new play
       multiWar1Hold = [];
       multiWar2Hold = [];
-      $(".Winner").css("color",player2Card.suit)
+      $(".winner").css("color",player2Card.suit)
                   .html("Player Two Wins!")
 //need to display score in if because if 2 wars in a row numbers will be off
-      $(".Score.Player1").html("Remaining Cards for Player One: "+player1Hand.length);
-      $(".Score.Player2").html("Remaining Cards for Player Two: "+player2Hand.length);
+      $(".score.player1").html("Remaining Cards for Player One: "+player1Hand.length);
+      $(".score.player2").html("Remaining Cards for Player Two: "+player2Hand.length);
   } else {
 // It's a TIE
-    $(".Winner").html("It's WAR!! Click to Start")
+    $(".winner").html("It's WAR!! Click to Start")
                 .css("color","purple");
 // Return the players cards to their hands so winner can take all and correct # of cards is displayed
       player1Hand.unshift(player1Card);
@@ -122,11 +122,11 @@ function playOneHand(){
 
 
 function flipCards(){
-  $(".JS-Play.Player1")
+  $(".js-play.player1")
     .addClass("currentCard")
     .css("color",player1Card.suit)
     .html(player1Card.value);
-  $(".JS-Play.Player2")
+  $(".js-play.player2")
     .addClass("currentCard")
     .css("color",player2Card.suit)
     .html(player2Card.value);
@@ -164,8 +164,8 @@ function war() {
 
 $(document).ready(function() {
   // Display Blank Card for Players
-  $(".Card.Player1").addClass("currentCard");
-  $(".Card.Player2").addClass("currentCard");
+  $(".card.player1").addClass("currentCard");
+  $(".card.player2").addClass("currentCard");
 })
 
 $start.on("click", function(){
@@ -186,19 +186,22 @@ $start.on("click", function(){
   splitTheDeck();
   // Show the Back of the card  for Players to look like the deck was split
   // Reset all Playing fields for a new game
-  $(".JS-Play.Player1").removeClass("currentCard");
-  $(".JS-Play.Player2").removeClass("currentCard");
+  $(".js-play.player1").removeClass("currentCard");
+  $(".js-play.player2").removeClass("currentCard");
   // Show blank space where deck
-  $(".Card.Deck").addClass("currentCard")
+  $(".card.deck").addClass("currentCard")
                  .html(" ");
-  $(".Score.Player1").html("Remaining Cards for Player One:       ");
-  $(".Score.Player2").html("Remaining Cards for Player Two:       ");
-  $(".Winner").html(" ")
+  $(".score.player1").html("Remaining Cards for Player One:       ");
+  $(".score.player2").html("Remaining Cards for Player Two:       ");
+  $(".winner").html(" ")
 });
 
-$(".JS-Play").on("click", function(){
+$(".js-play").on("click", function(){
 
-
+  // Don't allow user to keep clicking after game is finished
+  if (winner) {
+    return;
+  }
   playOneHand();
   flipCards();
   if (tieSwitch){
@@ -206,15 +209,15 @@ $(".JS-Play").on("click", function(){
 }
 
   if (findWinner()){
-    $(".Winner").html(winner)
+    $(".winner").html(winner)
                 .css("color","purple");
-    $(".JS-Play.Player1")
+    $(".js-play.player1")
       .addClass("currentCard")
       .html("");
-    $(".Card.Player2")
+    $(".card.player2")
       .addClass("currentCard")
       .html("");
-    $(".Card.Deck").removeClass("currentCard")
+    $(".card.deck").removeClass("currentCard")
                    .html("Click to Start");
   }
 })
@@ -222,5 +225,5 @@ $(".JS-Play").on("click", function(){
 // $("#start").click()
 //
 //     setInterval(function(){
-//       $(".JS-Play.Player1").click()
+//       $(".js-play.player1").click()
 //     },100)
