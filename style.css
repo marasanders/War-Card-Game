@@ -1,94 +1,83 @@
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
-*{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: inherit;
-  text-decoration: inherit;
-  line-height: inherit;
-}
+  @import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+  *{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    text-decoration: inherit;
+    line-height: inherit;
+  }
 
-/*.controls {
-  margin: 50px;
-  text-align: center;
-}*/
+  /*.controls {
+    margin: 50px;
+    text-align: center;
+  }*/
 
-body {
-  font-family: "Josefin Slab";
-}
-h1 {
-  margin-top: 50px;
-  font-size: 72px;
-  text-align: center;
-  transition: color 1s;
-}
-h1:hover{
-  color:red;
-}
-.board {
-  display:flex;
-  text-align: center;
-  flex-direction: row;
-  justify-content: center;
-}
+  body {
+    font-family: "Josefin Slab";
+  }
+  h1 {
+    margin-top: 50px;
+    font-size: 72px;
+    text-align: center;
+    transition: color 1s;
+  }
+  h1:hover{
+    color:red;
+  }
+  .board {
+    display:flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-.card {
-  font-size: 50px;
-  text-shadow: 2px 2px 4px #000000;
-  color: white;
-  font-weight:bolder;
-  text-align: center;
-  border: 1px solid black;
-  padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 2px 2px black;
-  height: 250px;
-  width: 170px;
-  display: inline-block;
-  margin:10px;
-  background-image: url("apples.jpg");
-  border-radius: 20%;
-  background-size: contain;
-  vertical-align:top;
-}
+  .card {
+    font-size: 50px;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-weight:bolder;
+    text-align: center;
+    border: 1px solid black;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+    height: 250px;
+    width: 170px;
+    display: inline-block;
+    margin:10px;
+    background-image: url("apples.jpg");
+    border-radius: 20%;
+    background-size: contain;
+    vertical-align:top;
+  }
 
-.deck {
-  border: 0;
-  box-shadow: none;
-}
+  .deck {
+    border: 0;
+    box-shadow: none;
+  }
 
 
-.score {
-  /*background: #4479BA;*/
-  color: #4479BA;
-  font-size: 30px;
-  text-align: center;
-  border: 1px solid black;
-  margin: 10px;
-  padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 2px 2px black;
-}
+  .score {
+    /*background: #4479BA;*/
+    color: #4479BA;
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 2px 2px black;
+  }
 
-.winner {
-  font-size: 40px;
-  font-weight: bolder;
-}
+  .winner {
+    font-size: 40px;
+    font-weight: bolder;
+  }
 
-.currentCard {
-  background-image: none;
-  background-color: white;
-  font-size: 200px;
-  font-weight:bolder;
-  text-align: center;
-  height: 250px;
-  width: 170px;
-  line-height:280px;
-}
-
-.greeen {
+  .currentCard {
     background-image: none;
     background-color: white;
     font-size: 200px;
@@ -97,5 +86,4 @@ h1:hover{
     height: 250px;
     width: 170px;
     line-height:280px;
-    background-image: url("apples.jpg");
-}
+  }
