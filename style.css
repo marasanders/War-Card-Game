@@ -11,8 +11,8 @@
 }
 
 /*.controls {
-  margin: 50px;
-  text-align: center;
+margin: 50px;
+text-align: center;
 }*/
 
 body {
@@ -89,13 +89,13 @@ h1:hover{
 }
 
 .greeen {
-    background-image: none;
-    background-color: white;
-    font-size: 200px;
-    font-weight:bolder;
-    text-align: center;
-    height: 250px;
-    width: 170px;
-    line-height:280px;
-    background-image: url("apples.jpg");
+  background-image: none;
+  background-color: white;
+  font-size: 200px;
+  font-weight:bolder;
+  text-align: center;
+  height: 250px;
+  width: 170px;
+  line-height:280px;
+  background-image: url("apples.jpg");
 }
